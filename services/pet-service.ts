@@ -3,6 +3,7 @@ import { SubmitPetPayload, SubmitPetResult } from '@/types/pet';
 
 const REQRES_USERS_ENDPOINT = 'https://reqres.in/api/users';
 const DOG_IMAGE_ENDPOINT = 'https://dog.ceo/api/breeds/image/random';
+const REQRES_API_KEY = process.env.EXPO_PUBLIC_REQRES_API_KEY;
 
 type DogImageResponse = {
   message: string;
@@ -10,7 +11,18 @@ type DogImageResponse = {
 };
 
 export async function submitPetDetails(payload: SubmitPetPayload): Promise<SubmitPetResult> {
-  return postJson<SubmitPetPayload, SubmitPetResult>(REQRES_USERS_ENDPOINT, payload);
+  if (!REQRES_API_KEY) {
+    return {
+      id: `local-${Date.now()}`,
+      createdAt: new Date().toISOString(),
+    };
+  }
+
+  return postJson<SubmitPetPayload, SubmitPetResult>(REQRES_USERS_ENDPOINT, payload, {
+    headers: {
+      'x-api-key': REQRES_API_KEY,
+    },
+  });
 }
 
 export async function fetchRandomPetImage(): Promise<string> {

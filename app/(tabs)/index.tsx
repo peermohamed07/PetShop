@@ -147,11 +147,11 @@ export default function CreatePetScreen() {
         breed: values.breed.trim(),
         status: 'success',
         createdAt: result.createdAt,
-        message: `Submitted successfully to ReqRes with remote id ${result.id}.`,
+        message: `Submitted successfully.`,
       });
       setSubmitState({
         type: 'success',
-        message: `Pet details submitted successfully. ReqRes id: ${result.id}`,
+        message: `Pet details submitted successfully`,
       });
       reset();
       setSelectedImageUri(null);
