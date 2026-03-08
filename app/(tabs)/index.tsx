@@ -178,14 +178,10 @@ export default function CreatePetScreen() {
     <SafeAreaView style={styles.safeArea} edges={['top']}>
       <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
         <View style={styles.hero}>
-        <Text style={styles.kicker}>Assignment build</Text>
         <Text style={styles.title}>
-          Create pet details, upload an image, call APIs, and push pets to the shared cart.
+          Create pet details, upload an image
         </Text>
-        <Text style={styles.subtitle}>
-          This screen covers the challenge form, image upload, random pet image fetch, validation,
-          and submission flow.
-        </Text>
+       
         <View style={styles.heroActions}>
           <Link href="/(tabs)/explore" style={styles.primaryButton}>
             <Text style={styles.primaryButtonText}>View pet listing</Text>
