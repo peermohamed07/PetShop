@@ -21,7 +21,7 @@ This project was created using **Expo** and uses **file-based routing with Expo 
 
 * React Native
 * Expo
-* JavaScript
+* TypeScript
 * Expo Router
 
 ---
